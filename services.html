@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page Title and Favicon -->
     <title>Our Services - EventElegance</title>
     <link rel="icon" href="images/favicon-32x32.png" type="favicon">
+
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
     <style>
-        
+        /* CSS Variables for consistent color theming */
         :root {
-            --primary: rgb(41, 33, 100);
+            --primary: #292164;
             --accent: #00B894;
             --background: rgb(225, 220, 220);
             --text: #2D3436;
         }
 
-       
+        /* Base styling reset */
         * {
             margin: 0;
             padding: 0;
@@ -23,6 +29,7 @@
             font-family: Georgia, 'Times New Roman', Times, serif;
         }
 
+        /* Body styling */
         body {
             background: var(--background);
             color: var(--text);
@@ -32,13 +39,14 @@
             line-height: 1.6;
         }
 
+        /* Headings styling */
         h1, h2, h3 {
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-weight: 700;
             color: var(--primary);
         }
 
-        
+        /* Header section with navigation bar */
         .header {
             background: var(--primary);
             padding: 1rem;
@@ -56,6 +64,7 @@
             margin: 0 auto;
         }
 
+        /* Logo styles */
         .logo {
             color: white;
             font-size: 1.8rem;
@@ -68,6 +77,7 @@
             color: var(--accent);
         }
 
+        /* Navigation links styling */
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -85,6 +95,7 @@
             background: rgba(255,255,255,0.1);
         }
 
+        /* Hamburger icon for mobile view */
         .hamburger {
             display: none;
             cursor: pointer;
@@ -92,7 +103,7 @@
             font-size: 1.8rem;
         }
 
-        /* Search */
+        /* Search bar styling */
         .search-bar {
             margin: 100px auto 2rem;
             max-width: 800px;
@@ -113,7 +124,7 @@
             box-shadow: 0 0 15px rgba(0,184,148,0.2);
         }
 
-        
+        /* Main container for service cards */
         .services-container {
             flex: 1;
             max-width: 1200px;
@@ -121,7 +132,7 @@
             padding: 0 1rem;
         }
 
-        
+        /* Individual service card styles */
         .service-card {
             background: white;
             border-radius: 15px;
@@ -140,6 +151,7 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
+        /* Service image container */
         .service-image {
             height: 250px;
             border-radius: 15px;
@@ -157,7 +169,7 @@
             transform: scale(1.05);
         }
 
-        
+        /* Footer styling */
         .footer {
             background: var(--primary);
             color: white;
@@ -166,22 +178,31 @@
             margin-top: auto;
         }
 
+        /* Animation class for scroll effects */
+        .animate {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Hide element (used for search filtering) */
         .hidden {
             display: none;
-          }
+        }
+
+        /* Testimonial quote block */
         blockquote {
             font-style: italic;
             font-weight: 500;
             border-left: 4px solid var(--accent);
             padding-left: 1rem;
             margin: 1rem 0;
-          }
+        }
+
+        /* Container for testimonial cards */
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             padding: 2rem 0;
-            
         }
 
         .card {
@@ -192,11 +213,10 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
 
-          
         .card:hover {
             transform: translateY(-10px) scale(1.02); 
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-          }
+        }
 
         .card-image {
             height: 350px;
@@ -211,11 +231,12 @@
             object-fit: cover;
             transition: transform 0.3s ease;
         }
+
         .card:hover .card-image img {
             transform: scale(1.05);
         }
 
-        /*Responsive Design */
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -245,15 +266,14 @@
             .service-image {
                 height: 200px;
             }
-        
-            
         }
     </style>
 </head>
 <body>
+    <!-- Header and navigation -->
     <header class="header">
         <nav class="navbar">
-            <a href="index.html" class="logo">EventElegance</a>
+            <a href="#" class="logo">EventElegance</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="services.html">Services</a>
@@ -264,10 +284,12 @@
         </nav>
     </header>
 
+    <!-- Search bar -->
     <div class="search-bar">
         <input type="text" class="search-input" placeholder="🔍 Search services..." id="searchInput">
     </div>
 
+    <!-- Services section -->
     <main class="services-container">
         <section class="services-container">
             <!-- Wedding Planning -->
@@ -378,7 +400,9 @@
                 </div>
             </div>
         </section>
-        <section class="testimonials animate">
+
+        <!-- Client testimonials -->
+       <section class="testimonials animate">
             <h2>Client Stories</h2>
             <div class="card-container">
                 <div class="card testimonial">
@@ -403,18 +427,19 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <p>© 2025 Event Elegance. All rights reserved</p>
-        <p>📞 +61425199519 | 📍 62-72 Queen Street, Auburn NSW, 2144</p>
+        <p>📞 (555) 123-4567 | 📍 123 Premium Event Street, Luxury City</p>
     </footer>
 
     <script>
-        // Hamburger Menu
+        // Toggle navigation for mobile (hamburger menu)
         document.querySelector('.hamburger').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
-        // Search Functionality
+        // Search functionality for filtering services
         const searchInput = document.getElementById('searchInput');
         const searchableElements = document.querySelectorAll('.searchable');
         const containers = Array.from(searchableElements).map(element => 
@@ -422,6 +447,7 @@
         );
         const uniqueContainers = [...new Set(containers)];
 
+        // Highlight matching text
         function highlightText(element, text) {
             const regex = new RegExp(text, 'gi');
             element.innerHTML = element.textContent.replace(regex, match => 
@@ -429,20 +455,24 @@
             );
         }
 
+        // Clear all highlights before new search
         function clearHighlights() {
             document.querySelectorAll('.highlight').forEach(highlight => {
                 highlight.outerHTML = highlight.innerHTML;
             });
         }
 
+        // Event listener for search input
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.trim().toLowerCase();
             clearHighlights();
 
+            // Hide all cards initially
             uniqueContainers.forEach(container => {
                 if (container) container.classList.add('hidden');
             });
 
+            // Show all if input is empty
             if (searchTerm === '') {
                 uniqueContainers.forEach(container => {
                     if (container) container.classList.remove('hidden');
@@ -450,6 +480,7 @@
                 return;
             }
 
+            // Show only matching cards
             searchableElements.forEach(element => {
                 const content = element.textContent.toLowerCase();
                 const container = element.closest('.service-card');
@@ -460,30 +491,29 @@
             });
         });
 
-        // Scroll Animations with Fade In/Out
+        // Scroll animation observer
         const animationObserver = new IntersectionObserver((entries) => {
-           entries.forEach(entry => {
-            if (entry.isIntersecting) {
-      
-            entry.target.style.opacity = 1;
-               entry.target.style.transform = 'translateY(0)';
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
                 } else {
-
                     entry.target.style.opacity = 0;
                     entry.target.style.transform = 'translateY(20px)';
-          }
-              });
-                  }, { 
-                   threshold: 0.3,  
-                 rootMargin: '0px 0px -100px 0px'  
-              });
+                }
+            });
+        }, { 
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        });
 
-                document.querySelectorAll('.animate').forEach(element => {
-               element.style.transition = 'all 0.8s ease';  
-               element.style.opacity = 0;  
-               element.style.transform = 'translateY(20px)';
-                animationObserver.observe(element);
-           });
+        // Apply animation styles on scroll
+        document.querySelectorAll('.animate').forEach(element => {
+            element.style.transition = 'all 0.8s ease';
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            animationObserver.observe(element);
+        });
     </script>
 </body>
 </html>
