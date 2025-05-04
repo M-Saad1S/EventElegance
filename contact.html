@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic page setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - EventElegance</title>
+    
+    <!-- Favicon and fonts -->
     <link rel="icon" href="images/favicon-32x32.png" type="favicon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
     <style>
-        
+        /* CSS Variables for consistent theming */
         :root {
             --primary: rgb(41, 33, 100);
             --accent: #00B894;
@@ -15,7 +19,7 @@
             --text: #2D3436;
         }
 
-       
+        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
@@ -38,7 +42,7 @@
             color: var(--primary);
         }
 
-        
+        /* Header and navigation */
         .header {
             background: var(--primary);
             padding: 1rem;
@@ -92,8 +96,8 @@
             font-size: 1.8rem;
         }
 
-        
-       .contact-container {
+        /* Contact section styling */
+        .contact-container {
             padding: 50px 20px 50px;
             max-width: 800px; 
             margin: 0 auto;
@@ -101,14 +105,13 @@
         }
 
         .contact-form {
-            width: 100%; 
+            width: 100%;
             padding: 2rem;
             border-radius: 15px;
             background-color: #ffffff;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
 
         .contact-form:hover {
             transform: translateY(-5px);
@@ -154,7 +157,7 @@
             transform: scale(1.05);
         }
 
-        
+        /* Footer styles */
         .footer {
             background: var(--primary);
             color: white;
@@ -163,6 +166,7 @@
             margin-top: auto;
         }
 
+        /* Responsive menu for mobile */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -194,6 +198,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigation bar -->
     <header class="header">
         <nav class="navbar">
             <a href="index.html" class="logo">EventElegance</a>
@@ -207,6 +212,7 @@
         </nav>
     </header>
 
+    <!-- Main contact form section -->
     <main class="contact-container">
         <div class="contact-form animate">
             <h2>📬 Get in Touch</h2>
@@ -228,17 +234,21 @@
         </div>
     </main>
 
+    <!-- Footer section -->
     <footer class="footer">
         <p>© 2025 Event Elegance. All rights reserved</p>
         <p>📞 +61425199519 | 📍 62-72 Queen Street, Auburn NSW, 2144</p>
     </footer>
 
+    <!-- JavaScript for EmailJS, animation, and responsive menu -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        // Initialize EmailJS with your public key
         (function() {
             emailjs.init('13ptYY5Isjmd0psT5');
         })();
 
+        // Handle form submission using EmailJS
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -251,35 +261,34 @@
                 });
         });
 
-        // Hamburger Menu
+        // Toggle hamburger menu
         document.querySelector('.hamburger').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
-        // Scroll Animations
-         const animationObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                    // Fade In
+        // Scroll animations using IntersectionObserver
+        const animationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
                     entry.target.style.opacity = 1;
                     entry.target.style.transform = 'translateY(0)';
-                  } else {
-                    // Fade Out
+                } else {
                     entry.target.style.opacity = 0;
                     entry.target.style.transform = 'translateY(20px)';
-                  }
-                });
-              }, { 
-                threshold: 0.3,  // Trigger when 30% of the element is visible
-                rootMargin: '0px 0px -100px 0px'  // Adjust for earlier/later triggering
-              });
-  
-              document.querySelectorAll('.animate').forEach(element => {
-                element.style.transition = 'all 0.8s ease';  // Smooth transition
-                element.style.opacity = 0;  // Start hidden
-                element.style.transform = 'translateY(20px)';
-                animationObserver.observe(element);
-              });
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        // Apply animation observer to elements with .animate
+        document.querySelectorAll('.animate').forEach(element => {
+            element.style.transition = 'all 0.8s ease';
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            animationObserver.observe(element);
+        });
     </script>
 </body>
 </html>
