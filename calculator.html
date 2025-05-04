@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic HTML Setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Calculator - EventElegance</title>
+    
+    <!-- Favicon -->
     <link rel="icon" href="images/favicon-32x32.png" type="favicon">
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Internal CSS Styling -->
     <style>
-       
+        /* Color Variables */
         :root {
             --primary: rgb(41, 33, 100);
             --accent: #00B894;
@@ -15,7 +22,7 @@
             --text: #2D3436;
         }
 
-        
+        /* Reset and Global Styles */
         * {
             margin: 0;
             padding: 0;
@@ -38,7 +45,7 @@
             color: var(--primary);
         }
 
-        
+        /* Header Styling */
         .header {
             background: var(--primary);
             padding: 1rem;
@@ -48,6 +55,7 @@
             box-shadow: 0 2px 15px rgba(108,92,231,0.1);
         }
 
+        /* Navbar Flex Container */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -56,6 +64,7 @@
             margin: 0 auto;
         }
 
+        /* Logo Styles */
         .logo {
             color: white;
             font-size: 1.8rem;
@@ -68,6 +77,7 @@
             color: var(--accent);
         }
 
+        /* Navigation Links */
         .nav-links {
             display: flex;
             gap: 2rem;
@@ -85,6 +95,7 @@
             background: rgba(255,255,255,0.1);
         }
 
+        /* Hamburger Menu (Mobile) */
         .hamburger {
             display: none;
             cursor: pointer;
@@ -92,7 +103,7 @@
             font-size: 1.8rem;
         }
 
-        /* Calculator Styles */
+        /* Calculator Container */
         .calculator-container {
             padding: 50px 20px 50px;
             max-width: 800px; 
@@ -100,6 +111,7 @@
             width: 100%; 
         }
         
+        /* Calculator Box Styling */
         .calculator-box {
             width: 100%; 
             padding: 2rem;
@@ -108,17 +120,16 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-         
 
         .calculator-box:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
+        /* Form Element Styling */
         .form-group {
             margin: 1.5rem 0;
         }
-
 
         label {
             display: block;
@@ -141,10 +152,12 @@
             border-color: var(--primary);
         }
 
+        /* Checkbox Styling */
         .checkbox-group {
             margin: 1rem 0;
         }
 
+        /* Button Styling */
         button {
             background: var(--accent);
             color: white;
@@ -161,6 +174,7 @@
             transform: scale(1.05);
         }
 
+        /* Result Box Styling */
         #result {
             margin-top: 2rem;
             padding: 1.5rem;
@@ -169,6 +183,7 @@
             display: none;
         }
 
+        /* Footer Styling */
         .footer {
             background: var(--primary);
             color: white;
@@ -177,6 +192,7 @@
             margin-top: auto;
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -202,6 +218,7 @@
             .calculator-container {
                 margin-top: 5px;
             }
+
             .calculator-container {
                 padding: 30px 10px;
                 max-width: 100%;
@@ -223,11 +240,11 @@
                 width: 100%;
                 font-size: 1rem;
             }
-
         }
     </style>
 </head>
 <body>
+    <!-- Website Header and Navigation -->
     <header class="header">
         <nav class="navbar">
             <a href="index.html" class="logo">EventElegance</a>
@@ -241,9 +258,11 @@
         </nav>
     </header>
 
+    <!-- Main Calculator Section -->
     <main class="calculator-container">
         <div class="calculator-box animate">
             <h2>Event Budget Calculator</h2>
+            <!-- Dropdown for Event Type -->
             <div class="form-group">
                 <label for="eventType">Event Type</label>
                 <select id="eventType">
@@ -253,11 +272,13 @@
                 </select>
             </div>
 
+            <!-- Input for Number of Guests -->
             <div class="form-group">
                 <label for="guests">Number of Guests</label>
                 <input type="number" id="guests" min="10" max="1000" value="50">
             </div>
 
+            <!-- Checkbox Options -->
             <div class="checkbox-group">
                 <h3>Additional Services</h3>
                 <label><input type="checkbox" name="catering"> Catering ($15/guest)</label>
@@ -265,32 +286,44 @@
                 <label><input type="checkbox" name="photography"> Photography ($1200)</label>
             </div>
 
+            <!-- Calculate Button -->
             <button onclick="calculateBudget()">Calculate Budget</button>
+            
+            <!-- Budget Result -->
             <div id="result"></div>
         </div>
     </main>
 
+    <!-- Website Footer -->
     <footer class="footer">
         <p>© 2025 Event Elegance. All rights reserved</p>
         <p>📞 +61425199519 | 📍 62-72 Queen Street, Auburn NSW, 2144</p>
     </footer>
 
+    <!-- JavaScript Functionality -->
     <script>
+        // Function to Calculate Budget
         function calculateBudget() {
+            // Base prices by event type
             const basePrices = {
                 wedding: 3000,
                 corporate: 5000,
                 birthday: 1500
             };
 
+            // Get input values
             const eventType = document.getElementById('eventType').value;
             const guests = parseInt(document.getElementById('guests').value) || 0;
-            
+
+            // Start total with base price
             let total = basePrices[eventType];
+
+            // Add optional services
             total += document.querySelector('[name="catering"]').checked ? 15 * guests : 0;
             total += document.querySelector('[name="decoration"]').checked ? 500 : 0;
             total += document.querySelector('[name="photography"]').checked ? 1200 : 0;
 
+            // Show and populate result box
             const resultDiv = document.getElementById('result');
             resultDiv.style.display = 'block';
             resultDiv.innerHTML = `
@@ -306,34 +339,33 @@
             `;
         }
 
-        // Hamburger Menu
+        // Toggle Hamburger Menu
         document.querySelector('.hamburger').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
-        // Scroll Animations
-         const animationObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                  if (entry.isIntersecting) {
-                    // Fade In
+        // Intersection Observer for Scroll Animations
+        const animationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
                     entry.target.style.opacity = 1;
                     entry.target.style.transform = 'translateY(0)';
-                  } else {
-                    // Fade Out
+                } else {
                     entry.target.style.opacity = 0;
                     entry.target.style.transform = 'translateY(20px)';
-                  }
-                });
-              }, { 
-                threshold: 0.3,  // Trigger when 30% of the element is visible
-                rootMargin: '0px 0px -100px 0px'  // Adjust for earlier/later triggering
-              });
-  
-              document.querySelectorAll('.animate').forEach(element => {
-                element.style.transition = 'all 0.8s ease';  // Smooth transition
-                element.style.opacity = 0;  // Start hidden
-                element.style.transform = 'translateY(20px)';
-                animationObserver.observe(element);
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '0px 0px -100px 0px'
+        });
+
+        // Apply observer to elements with class 'animate'
+        document.querySelectorAll('.animate').forEach(element => {
+            element.style.transition = 'all 0.8s ease';
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            animationObserver.observe(element);
         });
     </script>
 </body>
